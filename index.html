@@ -1,1 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio | Jesús Francisco Villa Icedo</title>
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --card-bg: #161b22;
+            --border-color: #30363d;
+            --text-color: #c9d1d9;
+            --heading-color: #f0f6fc;
+            --accent-color: #58a6ff;
+            --accent-green: #2ea043;
+        }
 
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+
+        header h1 {
+            color: var(--heading-color);
+            font-size: 2.5rem;
+            margin: 0 0 0.5rem 0;
+        }
+
+        header h2 {
+            color: var(--accent-color);
+            font-size: 1.3rem;
+            font-weight: 400;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        section {
+            margin-bottom: 3rem;
+        }
+
+        h2.section-title {
+            color: var(--heading-color);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .card h3 {
+            color: var(--heading-color);
+            margin-top: 0;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tag {
+            background-color: #1f242c;
+            color: var(--accent-color);
+            border: 1px solid var(--border-color);
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        a.btn {
+            display: inline-block;
+            background-color: var(--accent-green);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1rem;
+        }
+
+        a.btn:hover {
+            opacity: 0.9;
+        }
+
+        ul {
+            padding-left: 1.2rem;
+        }
+
+        .blog-subhead {
+            color: var(--accent-color);
+            font-weight: bold;
+            margin-top: 1rem;
+            margin-bottom: 0.2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. Nombre Completo & 2. Puesto al que aspiras -->
+    <header>
+        <h1>Jesús Francisco Villa Icedo</h1>
+        <h2>Desarrollador Backend & Software Engineer</h2>
+    </header>
+
+    <div class="container">
+
+        <!-- 3. Descripción -->
+        <section>
+            <h2 class="section-title">Sobre mí</h2>
+            <div class="card">
+                <h3>¿Quién soy?</h3>
+                <p>
+                    Estudiante de Ingeniería en Sistemas de Información en la Universidad de Sonora (campus Hermosillo), enfocado en el desarrollo de software backend, la administración de bases de datos relacionales y la gestión de infraestructura en entornos Linux y redes.
+                </p>
+                <h3>¿Qué puedo hacer?</h3>
+                <p>
+                    Tengo experiencia construyendo APIs RESTful, estructurando lógica orientada a objetos en Java y Python, administrando servidores MySQL/PostgreSQL con políticas de seguridad y respaldos, y configurando servicios de red. Además, diseño arquitecturas de software claras y prototipos de interfaz funcional para sistemas web e inventarios.
+                </p>
+            </div>
+        </section>
+
+        <!-- 4. Educación -->
+        <section>
+            <h2 class="section-title">Educación</h2>
+            <div class="card">
+                <h3>Ingeniería en Sistemas de Información (ISI)</h3>
+                <p><strong>Universidad de Sonora (Unison)</strong> — Campus Hermosillo</p>
+                <p>En formación académica abordando asignaturas clave como Desarrollo de Software, Bases de Datos, Redes y Servidores, e Investigación y Análisis de Datos.</p>
+            </div>
+        </section>
+
+        <!-- 5. Habilidades -->
+        <section>
+            <h2 class="section-title">Habilidades</h2>
+            <div class="grid-2">
+                <div class="card">
+                    <h3>Tecnologías & Herramientas</h3>
+                    <ul>
+                        <li><strong>Lenguajes:</strong> Java, Python, JavaScript, HTML, CSS, SQL.</li>
+                        <li><strong>Frameworks & APIs:</strong> Flask.</li>
+                        <li><strong>Bases de Datos:</strong> PostgreSQL, MySQL, SQLite.</li>
+                        <li><strong>Redes & Infraestructura:</strong> Linux (Ubuntu Server), Cisco Packet Tracer, Netplan, OpenSSH, RADIUS.</li>
+                        <li><strong>Diseño & Prototipado:</strong> Figma.</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Habilidades Sociales & Profesionales</h3>
+                    <ul>
+                        <li>Trabajo en equipo y colaboración efectiva.</li>
+                        <li>Pensamiento analítico y resolución de problemas complejos.</li>
+                        <li>Elaboración y documentación técnica estructurada.</li>
+                        <li>Gestión autónoma del aprendizaje y adaptación tecnológica.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Proyectos (Repositorios de código) -->
+        <section>
+            <h2 class="section-title">Proyectos Destacados</h2>
+
+            <div class="card">
+                <h3>Sistema de Punto de Venta (POS) - Frontend Web</h3>
+                <p>Desarrollo de una interfaz web para control de ventas e inventarios utilizando estándares de desarrollo frontend.</p>
+                <div class="tags">
+                    <span class="tag">HTML5</span>
+                    <span class="tag">CSS3</span>
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">Figma</span>
+                </div>
+                <a href="https://github.com/JesusVillagg/ProyectoFinalDesarrolloIII" class="btn" target="_blank">Ver Repositorio</a>
+            </div>
+
+            <div class="card">
+                <h3>API REST de Gestión de Inventarios</h3>
+                <p>Servicio backend desarrollado en Python con el microframework Flask para administración de productos y persistencia estructurada.</p>
+                <div class="tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">Flask</span>
+                    <span class="tag">JSON</span>
+                    <span class="tag">REST API</span>
+                </div>
+                <a href="https://github.com/JesusVillagg" class="btn" target="_blank">Ver Repositorio</a>
+            </div>
+
+            <div class="card">
+                <h3>Implementación de Estructuras de Datos y Algoritmos</h3>
+                <p>Colección de soluciones en Java implementando algoritmos de búsqueda, ordenamiento y estructuras de datos dinámicas.</p>
+                <div class="tags">
+                    <span class="tag">Java</span>
+                    <span class="tag">OOP</span>
+                    <span class="tag">Algoritmos</span>
+                </div>
+                <a href="https://github.com/JesusVillagg" class="btn" target="_blank">Ver Repositorio</a>
+            </div>
+        </section>
+
+        <!-- 7. Blogs (Proyectos de Infraestructura, BD y Administración) -->
+        <section>
+            <h2 class="section-title">Casos de Estudio & Blogs</h2>
+
+            <!-- Blog A -->
+            <div class="card">
+                <h3>Caso 1: Creación, Gestión de Usuarios y Respaldo en MySQL (Servidores II)</h3>
+                
+                <p class="blog-subhead">a. Descripción:</p>
+                <p>Implementación y administración integral de un sistema de bases de datos sobre una máquina virtual con Ubuntu Server, abarcando desde la definición de modelos hasta políticas de privilegios y recuperación ante desastres.</p>
+
+                <p class="blog-subhead">b. Requerimientos del cliente / proyecto:</p>
+                <ul>
+                    <li>Crear una base de datos funcional para gestión de inventario.</li>
+                    <li>Restringir el acceso de los usuarios según su rol (un usuario de consulta y un usuario administrador).</li>
+                    <li>Garantizar un plan de respaldo (`mysqldump`) y un protocolo de restauración probado ante posibles fallos.</li>
+                </ul>
+
+                <p class="blog-subhead">c. ¿Cómo se diseñó la solución?:</p>
+                <p>Se definió una arquitectura de seguridad por roles en MySQL asignando el privilegio `SELECT` exclusivo al usuario `consultor` y `ALL PRIVILEGES` al usuario `administrador_inv`. Adicionalmente, se planificó la exportación periódica en scripts SQL para permitir clonación y restauración rápida.</p>
+
+                <p class="blog-subhead">d. ¿Cómo se implementó la solución?:</p>
+                <p>A través de la consola en Ubuntu Server se ejecutó la definición de tablas (`CREATE TABLE productos`), inserción de datos iniciales y la asignación de permisos mediante `GRANT`. Se generó el respaldo ejecutable con `mysqldump` y se probó la restauración creando una base de datos secundaria `inventario_restaurada`.</p>
+
+                <p class="blog-subhead">e. ¿Cuál fue el resultado?:</p>
+                <p>Acceso restringido validado correctamente (el usuario consultor obtuvo un error de permisos al intentar hacer `INSERT`), y comprobación del 100% de la integridad de los datos restaurados desde el archivo de respaldo.</p>
+            </div>
+
+            <!-- Blog B -->
+            <div class="card">
+                <h3>Caso 2: Análisis de Conectividad a Internet y Productividad Académica</h3>
+                
+                <p class="blog-subhead">a. Descripción:</p>
+                <p>Proyecto de investigación y análisis de datos orientado a evaluar el impacto de las métricas de red en el rendimiento escolar de estudiantes de ingeniería.</p>
+
+                <p class="blog-subhead">b. Requerimientos del cliente / proyecto:</p>
+                <ul>
+                    <li>Identificar la relación entre variables cuantitativas (Mbps, horas de uso) y cualitativas (satisfacción, estabilidad).</li>
+                    <li>Diseñar una base de datos para la ingesta y estructuración de la información recolectada mediante encuestas digitales.</li>
+                </ul>
+
+                <p class="blog-subhead">c. ¿Cómo se diseñó la solución?:</p>
+                <p>Se estructuró una base de datos relacional para procesar encuestas de Google Forms y exportarlas a herramientas de análisis como Excel y librerías de Python para cálculos estadísticos descriptivos.</p>
+
+                <p class="blog-subhead">d. ¿Cómo se implementó la solución?:</p>
+                <p>Se llevó a cabo un muestreo probabilístico aleatorio simple, se limpió el conjunto de datos y se aplicaron modelos de correlación para evaluar el rendimiento escolar frente al tiempo de pérdida por fallas de conexión.</p>
+
+                <p class="blog-subhead">e. ¿Cuál fue el resultado?:</p>
+                <p>Se generó un informe técnico detallado que identificó los principales cuellos de botella de conectividad y ofreció conclusiones claras sobre la infraestructura necesaria para sostener la productividad académica en la nube.</p>
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>
