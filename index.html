@@ -6,14 +6,50 @@
     <title>Portafolio | Jesús Francisco Villa Icedo</title>
     <style>
         :root {
-            --bg-color: #0d1117;
-            --card-bg: #161b22;
-            --border-color: #30363d;
-            --text-color: #c9d1d9;
-            --heading-color: #f0f6fc;
-            --accent-color: #58a6ff;
-            --accent-green: #2ea043;
+            /* Tema claro (por defecto) */
+            --bg-color: #ffffff;
+            --card-bg: #f7f7f7;
+            --border-color: #d4d4d4;
+            --text-color: #2b2b2b;
+            --heading-color: #000000;
+            --accent-color: #000000;
+            --sidebar-bg: #000000;
+            --sidebar-text: #ffffff;
+            --sidebar-muted: #b8b8b8;
+            --sidebar-width: 310px;
+            --tag-bg: #ffffff;
+            --tag-text: #000000;
+            --tag-border: #000000;
+            --btn-bg: #000000;
+            --btn-text: #ffffff;
+            --btn-hover: #333333;
+            --toggle-bg: #f0f0f0;
+            --toggle-border: #d4d4d4;
+            --toggle-icon: #000000;
         }
+
+        /* Tema oscuro (solo afecta el lado derecho) */
+        body.dark-mode {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --border-color: #3a3a3a;
+            --text-color: #e4e4e4;
+            --heading-color: #ffffff;
+            --accent-color: #ffffff;
+            --tag-bg: #2a2a2a;
+            --tag-text: #ffffff;
+            --tag-border: #ffffff;
+            --btn-bg: #ffffff;
+            --btn-text: #000000;
+            --btn-hover: #cccccc;
+            --toggle-bg: #2a2a2a;
+            --toggle-border: #555555;
+            --toggle-icon: #ffffff;
+        }
+
+        * { box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -22,32 +58,122 @@
             line-height: 1.6;
             margin: 0;
             padding: 0;
+            display: flex;
+            align-items: flex-start;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
-        header {
-            background-color: var(--card-bg);
-            border-bottom: 1px solid var(--border-color);
-            padding: 3rem 1rem;
-            text-align: center;
+        /* ---------- Panel izquierdo fijo (siempre oscuro) ---------- */
+        .sidebar {
+            flex: 0 0 var(--sidebar-width);
+            width: var(--sidebar-width);
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            background-color: var(--sidebar-bg);
+            color: var(--sidebar-text);
+            padding: 2.5rem 1.75rem;
         }
 
-        header h1 {
-            color: var(--heading-color);
-            font-size: 2.5rem;
-            margin: 0 0 0.5rem 0;
+        .avatar {
+            position: relative;
+            width: 160px;
+            height: 160px;
+            margin: 0 auto 1.75rem auto;
+            border-radius: 50%;
+            border: 4px solid #ffffff;
+            background-color: #1c1c1c;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #ffffff;
         }
 
-        header h2 {
-            color: var(--accent-color);
-            font-size: 1.3rem;
-            font-weight: 400;
+        .avatar img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .sidebar h1 {
             margin: 0;
+            font-size: 1.9rem;
+            line-height: 1.15;
+            text-transform: uppercase;
+            text-align: left;
+            color: #ffffff;
+        }
+
+        .sidebar h1 .first { display: block; font-weight: 400; }
+        .sidebar h1 .last  { display: block; font-weight: 800; }
+
+        .role {
+            margin: 1rem 0 0 0;
+            padding: 0.5rem 0;
+            border-top: 1px solid #ffffff;
+            border-bottom: 1px solid #ffffff;
+            font-size: 0.9rem;
+            letter-spacing: 0.04em;
+            color: #ffffff;
+        }
+
+        .contact { margin-top: 2.25rem; }
+
+        .contact h2 {
+            margin: 0 0 0.75rem 0;
+            font-size: 1.3rem;
+            color: #ffffff;
+        }
+
+        .contact ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .contact li { margin-bottom: 0.9rem; }
+
+        .contact .label {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--sidebar-muted);
+        }
+
+        .contact a {
+            color: #ffffff;
+            text-decoration: none;
+            border-bottom: 1px solid #6b6b6b;
+            word-break: break-word;
+            font-size: 0.95rem;
+        }
+
+        .contact a:hover { border-bottom-color: #ffffff; }
+
+        .contact a:focus-visible,
+        a.btn:focus-visible,
+        .theme-toggle:focus-visible {
+            outline: 2px solid #ffffff;
+            outline-offset: 3px;
+        }
+
+        /* ---------- Contenido derecho con scroll ---------- */
+        main {
+            flex: 1 1 auto;
+            min-width: 0;
+            background-color: var(--bg-color);
+            transition: background-color 0.3s ease;
         }
 
         .container {
             max-width: 900px;
             margin: 0 auto;
-            padding: 2rem 1rem;
+            padding: 2.5rem 2rem;
         }
 
         section {
@@ -56,10 +182,11 @@
 
         h2.section-title {
             color: var(--heading-color);
-            border-bottom: 2px solid var(--border-color);
+            border-bottom: 3px solid var(--heading-color);
             padding-bottom: 0.5rem;
             margin-bottom: 1.5rem;
             font-size: 1.8rem;
+            transition: color 0.3s ease, border-color 0.3s ease;
         }
 
         .card {
@@ -68,11 +195,13 @@
             border-radius: 8px;
             padding: 1.5rem;
             margin-bottom: 1.5rem;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
         }
 
         .card h3 {
             color: var(--heading-color);
             margin-top: 0;
+            transition: color 0.3s ease;
         }
 
         .tags {
@@ -83,12 +212,13 @@
         }
 
         .tag {
-            background-color: #1f242c;
-            color: var(--accent-color);
-            border: 1px solid var(--border-color);
+            background-color: var(--tag-bg);
+            color: var(--tag-text);
+            border: 1px solid var(--tag-border);
             padding: 0.2rem 0.6rem;
             border-radius: 20px;
             font-size: 0.85rem;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
         }
 
         .grid-2 {
@@ -97,25 +227,20 @@
             gap: 1rem;
         }
 
-        @media (max-width: 768px) {
-            .grid-2 {
-                grid-template-columns: 1fr;
-            }
-        }
-
         a.btn {
             display: inline-block;
-            background-color: var(--accent-green);
-            color: white;
+            background-color: var(--btn-bg);
+            color: var(--btn-text);
             padding: 0.5rem 1rem;
             border-radius: 6px;
             text-decoration: none;
             font-weight: bold;
             margin-top: 1rem;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         a.btn:hover {
-            opacity: 0.9;
+            background-color: var(--btn-hover);
         }
 
         ul {
@@ -128,21 +253,108 @@
         }
 
         .blog-subhead {
-            color: var(--accent-color);
+            color: var(--heading-color);
             font-weight: bold;
             margin-top: 1rem;
             margin-bottom: 0.2rem;
+            transition: color 0.3s ease;
+        }
+
+        /* ---------- Botón flotante de tema ---------- */
+        .theme-toggle {
+            position: fixed;
+            top: 1.25rem;
+            right: 1.25rem;
+            z-index: 1000;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 1px solid var(--toggle-border);
+            background-color: var(--toggle-bg);
+            color: var(--toggle-icon);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.08);
+        }
+
+        /* ---------- Pantallas pequeñas ---------- */
+        @media (max-width: 900px) {
+            body { display: block; }
+
+            .sidebar {
+                position: static;
+                width: 100%;
+                height: auto;
+                overflow: visible;
+                padding: 2rem 1.5rem;
+            }
+
+            .sidebar h1 { text-align: center; }
+            .role { text-align: center; }
+            .container { padding: 2rem 1rem; }
+
+            .theme-toggle {
+                top: 0.75rem;
+                right: 0.75rem;
+                width: 42px;
+                height: 42px;
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- 1. Nombre Completo & 2. Puesto al que aspiras -->
-    <header>
-        <h1>Jesús Francisco Villa Icedo</h1>
-        <h2>Desarrollador Backend & Software Engineer</h2>
-    </header>
+    <!-- Botón flotante para cambiar tema -->
+    <button class="theme-toggle" id="themeToggle" type="button"
+            aria-label="Cambiar entre modo claro y oscuro"
+            title="Cambiar tema">
+        <span id="themeIcon" aria-hidden="true">🌙</span>
+    </button>
 
+    <!-- 1. Foto, Nombre Completo, 2. Puesto al que aspiras & Contacto (panel fijo) -->
+    <aside class="sidebar">
+        <div class="avatar">
+            <span aria-hidden="true">JV</span>
+            <img src="foto.jpg" alt="Foto de Jesús Francisco Villa Icedo" onerror="this.remove()">
+        </div>
+
+        <h1>
+            <span class="first">Jesús Francisco</span>
+            <span class="last">Villa Icedo</span>
+        </h1>
+        <p class="role">Desarrollador Backend &amp; Software Engineer</p>
+
+        <div class="contact">
+            <h2>Contacto</h2>
+            <ul>
+                <li>
+                    <span class="label">Correo</span>
+                    <a href="mailto:icedojesus2@gmail.com">icedojesus2@gmail.com</a>
+                </li>
+                <li>
+                    <span class="label">GitHub</span>
+                    <a href="https://github.com/JesusVillagg" target="_blank" rel="noopener noreferrer">github.com/JesusVillagg</a>
+                </li>
+            </ul>
+        </div>
+    </aside>
+
+    <main>
     <div class="container">
 
         <!-- 3. Descripción -->
@@ -177,7 +389,7 @@
                 <div class="card">
                     <h3>Tecnologías & Herramientas</h3>
                     <ul>
-                        <li><strong>Lenguajes:</strong> Java, Python, JavaScript, HTML, SQL.</li> <!-- <li><strong>Frameworks & APIs:</strong> Flask.</li> -->
+                        <li><strong>Lenguajes:</strong> Java, Python, JavaScript, HTML, SQL.</li>
                         <li><strong>Bases de Datos:</strong> PostgreSQL, MySQL, SQLite.</li>
                         <li><strong>Redes & Infraestructura:</strong> Linux (Ubuntu Server), Cisco Packet Tracer, OpenSSH, RADIUS.</li>
                         <li><strong>Diseño & Prototipado:</strong> Figma.</li>
@@ -195,7 +407,7 @@
             </div>
         </section>
 
-        <!-- 6. Proyectos (Repositorios de código) -->
+        <!-- 6. Proyectos -->
         <section>
             <h2 class="section-title">Proyectos Destacados</h2>
 
@@ -273,39 +485,13 @@
             </div>
         </section>
 
-        <!-- 7. Blogs (Proyectos de Infraestructura, BD y Administración) -->
+        <!-- 7. Blogs -->
         <section>
             <h2 class="section-title">Casos de Estudio & Blogs</h2>
 
-            <!-- Blog A 
-            <div class="card">
-                <h3>Caso 1: Creación, Gestión de Usuarios y Respaldo en MySQL (Servidores II)</h3>
-                
-                <p class="blog-subhead">a. Descripción:</p>
-                <p>Implementación y administración integral de un sistema de bases de datos sobre una máquina virtual con Ubuntu Server, abarcando desde la definición de modelos hasta políticas de privilegios y recuperación ante desastres.</p>
-
-                <p class="blog-subhead">b. Requerimientos del cliente / proyecto:</p>
-                <ul>
-                    <li>Crear una base de datos funcional para gestión de inventario.</li>
-                    <li>Restringir el acceso de los usuarios según su rol (un usuario de consulta y un usuario administrador).</li>
-                    <li>Garantizar un plan de respaldo (`mysqldump`) y un protocolo de restauración probado ante posibles fallos.</li>
-                </ul>
-
-                <p class="blog-subhead">c. ¿Cómo se diseñó la solución?:</p>
-                <p>Se definió una arquitectura de seguridad por roles en MySQL asignando el privilegio `SELECT` exclusivo al usuario `consultor` y `ALL PRIVILEGES` al usuario `administrador_inv`. Adicionalmente, se planificó la exportación periódica en scripts SQL para permitir clonación y restauración rápida.</p>
-
-                <p class="blog-subhead">d. ¿Cómo se implementó la solución?:</p>
-                <p>A través de la consola en Ubuntu Server se ejecutó la definición de tablas (`CREATE TABLE productos`), inserción de datos iniciales y la asignación de permisos mediante `GRANT`. Se generó el respaldo ejecutable con `mysqldump` y se probó la restauración creando una base de datos secundaria `inventario_restaurada`.</p>
-
-                <p class="blog-subhead">e. ¿Cuál fue el resultado?:</p>
-                <p>Acceso restringido validado correctamente (el usuario consultor obtuvo un error de permisos al intentar hacer `INSERT`), y comprobación del 100% de la integridad de los datos restaurados desde el archivo de respaldo.</p>
-            </div>
-            -->
-
-            <!-- Blog B -->
             <div class="card">
                 <h3>Caso 1: Análisis de Conectividad a Internet y Productividad Académica</h3>
-                
+
                 <p class="blog-subhead">a. Descripción:</p>
                 <p>Proyecto de investigación y análisis de datos orientado a evaluar el impacto de las métricas de red en el rendimiento escolar de estudiantes de ingeniería.</p>
 
@@ -327,6 +513,28 @@
         </section>
 
     </div>
+    </main>
+
+    <script>
+        (function () {
+            const toggleBtn = document.getElementById('themeToggle');
+            const icon = document.getElementById('themeIcon');
+            const body = document.body;
+
+            // Aplicar tema guardado al cargar
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                body.classList.add('dark-mode');
+                icon.textContent = '☀️';
+            }
+
+            toggleBtn.addEventListener('click', function () {
+                const isDark = body.classList.toggle('dark-mode');
+                icon.textContent = isDark ? '☀️' : '🌙';
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            });
+        })();
+    </script>
 
 </body>
 </html>
